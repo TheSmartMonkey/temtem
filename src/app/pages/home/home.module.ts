@@ -1,3 +1,4 @@
+import { MatButtonModule } from '@angular/material/button';
 import { TemtemTypesComponent } from './../../components/temtem-types/temtem-types.component';
 import { TemtemSearchComponent } from './../../components/temtem-search/temtem-search.component';
 import { NgModule } from '@angular/core';
@@ -14,6 +15,11 @@ import { SharedModule } from '../../shared/shared.module';
     TemtemSearchComponent,
     TemtemTypesComponent
   ],
-  imports: [CommonModule, SharedModule, HomeRoutingModule]
+  imports: [
+    CommonModule,
+    SharedModule,
+    HomeRoutingModule,
+    MatButtonModule
+  ]
 })
 export class HomeModule {}
