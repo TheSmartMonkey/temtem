@@ -1,0 +1,27 @@
+<div class="container">
+    <div *ngFor="let type of types" class="button-container">
+        <button mat-fab [id]="type" (click)="selectType(type)">
+            <img src="../../../assets/types/{{type}}.png" class="type-icons">
+        </button>
+    </div>
+</div>
+
+<div class="table-container">
+    <table>
+        <caption>Weakness</caption>
+        <thead>
+            <tr>
+                <th *ngFor="let type of types">
+                    {{type}}
+                    <img src="../../../assets/types/{{type}}.png" class="type-icons">
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>3,000</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
