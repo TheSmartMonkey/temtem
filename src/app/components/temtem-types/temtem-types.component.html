@@ -1,6 +1,6 @@
 <div class="container">
     <div *ngFor="let type of types" class="button-container">
-        <button mat-fab [id]="type" (click)="selectType(type)">
+        <button mat-fab [id]="type" (click)="onClickType(type)">
             <img src="../../../assets/types/{{type}}.png" class="type-icons">
         </button>
     </div>

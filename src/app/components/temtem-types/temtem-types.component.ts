@@ -10,22 +10,39 @@ import { TYPES } from '../../models/types';
 export class TemtemTypesComponent implements OnInit {
 
   types: string[] = TYPES;
-  typeValues: any;
+  selectedTypes = [];
+  WeaknessTable: string[];
 
   constructor(private temtemTypesService: TemtemTypesService) { }
 
   ngOnInit() {
   }
 
-  selectType(type: string) {
+  onClickType(type: string) {
+    this.setButtonToGrey(type);
+    this.setSelectedTypes(type);
+    this.setWeaknessTable();
+  }
+
+  setButtonToGrey(type: string) {
     const typeButton = document.getElementById(type);
     if (typeButton.style.border) {
       typeButton.style.border = '';
     } else {
       typeButton.style.border = '2px solid grey';
     }
+  }
 
-    console.log(this.temtemTypesService.getTypesWeakness(['water', 'nature']));
+  setSelectedTypes(type: string) {
+    if (this.selectedTypes.includes(type)) {
+      this.selectedTypes.splice(this.selectedTypes.indexOf(type), 1);
+    } else {
+      this.selectedTypes.push(type);
+    }
+  }
+
+  setWeaknessTable() {
+    // this.WeaknessTable = this.temtemType sService.getTypesWeakness(this.selectedTypes);
   }
 
 }

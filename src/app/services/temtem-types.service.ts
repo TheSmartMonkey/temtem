@@ -1,3 +1,4 @@
+import { TYPES } from './../models/types';
 import { Injectable } from '@angular/core';
 import { TYPE_COUNTER } from '../models/types-counter';
 
@@ -21,5 +22,14 @@ export class TemtemTypesService {
     }
 
     return res;
+  }
+
+  formatTypes(temtemTypes: string[]) {
+    const types = this.getTypesWeakness(temtemTypes);
+    const format = [];
+
+    for (const type of TYPES) {
+      
+    }
   }
 }

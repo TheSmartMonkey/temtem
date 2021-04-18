@@ -51,6 +51,23 @@ function getAllTypesImages() {
     }
 }
 
+function getAllTemtemImages() {
+    request('https://temtem-api.mael.tech/api/temtems', { json: true }, (err, _, body) => {
+        if (err) { return console.log(err); }
+
+        const temtems =  {};
+        for (const temtem of body) {
+            temtems[temtem.name] = temtem.portraitWikiUrl;
+        }
+
+        for (const [name, url] of Object.entries(temtems)) {
+            download(url, 'src/assets/temtem/' + name + '.png', () => {
+                console.log('✅ Done!')
+            })
+        }
+    });
+}
+
 const download = (url, path, callback) => {
     request.head(url, (err, res, body) => {
         request(url)
@@ -64,4 +81,5 @@ if (require.main === module) {
     // getTypes();
     // getTemtem();
     // getAllTypesImages();
+    // getAllTemtemImages();
 }
