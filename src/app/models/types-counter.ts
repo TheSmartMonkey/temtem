@@ -1,74 +1,74 @@
 export const TYPE_COUNTER = {
-    crystal: {
-        damageGood: ['mental', 'electric'],
-        resGood: ['mental', 'electric', 'toxic'],
-        damageBad: ['fire', 'earth'],
-        resBad: ['melee', 'fire', 'earth']
+    Crystal: {
+        damageGood: ['Mental', 'Electric'],
+        resGood: ['Mental', 'Electric', 'Toxic'],
+        damageBad: ['Fire', 'Earth'],
+        resBad: ['Melee', 'Fire', 'Earth']
     },
-    electric: {
-        damageGood: ['mental', 'water', 'digital', 'wind'],
-        resGood: ['electric', 'wind'],
-        damageBad: ['crystal', 'nature', 'earth', 'electirc'],
-        resBad: ['earth', 'crystal']
+    Electric: {
+        damageGood: ['Mental', 'Water', 'Digital', 'Wind'],
+        resGood: ['Electric', 'Wind'],
+        damageBad: ['Crystal', 'Nature', 'Earth', 'Electric'],
+        resBad: ['Earth', 'Crystal']
     },
-    mental: {
-        damageGood: ['neutral', 'melee'],
-        resGood: ['neutral', 'melee'],
-        damageBad: ['crystal'],
-        resBad: ['crystal', 'digital', 'electric']
+    Mental: {
+        damageGood: ['Neutral', 'Melee'],
+        resGood: ['Neutral', 'Melee'],
+        damageBad: ['Crystal'],
+        resBad: ['Crystal', 'Digital', 'Electric']
     },
-    toxic: {
-        damageGood: ['water', 'nature'],
-        resGood: ['water', 'nature', 'toxic'],
-        damageBad: ['crystal', 'earth', 'digital', 'toxic'],
-        resBad: ['wind']
+    Toxic: {
+        damageGood: ['Water', 'Nature'],
+        resGood: ['Water', 'Nature', 'Toxic'],
+        damageBad: ['Crystal', 'Earth', 'Digital', 'Toxic'],
+        resBad: ['Wind']
     },
-    digital: {
-        damageGood: ['mental', 'digital', 'melee'],
-        resGood: ['toxic'],
+    Digital: {
+        damageGood: ['Mental', 'Digital', 'Melee'],
+        resGood: ['Toxic'],
         damageBad: [],
-        resBad: ['electric', 'water', 'digital']
+        resBad: ['Electric', 'Water', 'Digital']
     },
-    fire: {
-        damageGood: ['nature', 'crystal'],
-        resGood: ['nature', 'fire', 'crystal'],
-        damageBad: ['fire', 'water', 'earth'],
-        resBad: ['water', 'earth']
+    Fire: {
+        damageGood: ['Nature', 'Crystal'],
+        resGood: ['Nature', 'Fire', 'Crystal'],
+        damageBad: ['Fire', 'Water', 'Earth'],
+        resBad: ['Water', 'Earth']
     },
-    nature: {
-        damageGood: ['water', 'earth'],
-        resGood: ['water', 'nature', 'earth', 'electric'],
-        damageBad: ['fire', 'nature', 'toxic'],
-        resBad: ['fire', 'toxic']
+    Nature: {
+        damageGood: ['Water', 'Earth'],
+        resGood: ['Water', 'Nature', 'Earth', 'Electric'],
+        damageBad: ['Fire', 'Nature', 'Toxic'],
+        resBad: ['Fire', 'Toxic']
     },
-    water: {
-        damageGood: ['fire', 'earth', 'digital'],
-        resGood: ['earth', 'fire', 'water'],
-        damageBad: ['toxic', 'water', 'nature'],
-        resBad: ['nature', 'electric', 'toxic']
+    Water: {
+        damageGood: ['Fire', 'Earth', 'Digital'],
+        resGood: ['Earth', 'Fire', 'Water'],
+        damageBad: ['Toxic', 'Water', 'Nature'],
+        resBad: ['Nature', 'Electric', 'Toxic']
     },
-    earth: {
-        damageGood: ['crystal', 'fire', 'electric'],
-        resGood: ['crystal', 'fire', 'electric', 'toxic'],
-        damageBad: ['nature', 'water', 'wind'],
-        resBad: ['melee', 'nature', 'water']
+    Earth: {
+        damageGood: ['Crystal', 'Fire', 'Electric'],
+        resGood: ['Crystal', 'Fire', 'Electric', 'Toxic'],
+        damageBad: ['Nature', 'Water', 'Wind'],
+        resBad: ['Melee', 'Nature', 'Water']
     },
-    melee: {
-        damageGood: ['earth', 'crystal'],
-        resGood: ['melee'],
-        damageBad: ['mental', 'melee'],
-        resBad: ['mental', 'digital']
+    Melee: {
+        damageGood: ['Earth', 'Crystal'],
+        resGood: ['Melee'],
+        damageBad: ['Mental', 'Melee'],
+        resBad: ['Mental', 'Digital']
     },
-    neutral: {
+    Neutral: {
         damageGood: [],
         resGood: [],
-        damageBad: ['mental'],
-        resBad: ['mental']
+        damageBad: ['Mental'],
+        resBad: ['Mental']
     },
-    wind: {
-        damageGood: ['toxic'],
-        resGood: ['wind', 'earth'],
-        damageBad: ['electric', 'wind'],
-        resBad: ['electric']
+    Wind: {
+        damageGood: ['Toxic'],
+        resGood: ['Wind', 'Earth'],
+        damageBad: ['Electric', 'Wind'],
+        resBad: ['Electric']
     }
 };

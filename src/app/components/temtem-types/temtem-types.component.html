@@ -19,7 +19,9 @@
         </thead>
         <tbody>
             <tr>
-                <td>3,000</td>
+                <td *ngFor="let weakness of weaknessTable">
+                    x{{weakness}}
+                </td>
             </tr>
         </tbody>
     </table>

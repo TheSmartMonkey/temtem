@@ -1,6 +1,6 @@
 import { TYPES } from './../models/types';
 import { Injectable } from '@angular/core';
-import { TYPE_COUNTER } from '../models/types-counter';
+import { TYPE_COUNTER } from './../models/types-counter';
 
 @Injectable({
   providedIn: 'root'
@@ -24,12 +24,18 @@ export class TemtemTypesService {
     return res;
   }
 
-  formatTypes(temtemTypes: string[]) {
+  formatTypes(temtemTypes: string[]): string[] {
     const types = this.getTypesWeakness(temtemTypes);
     const format = [];
 
     for (const type of TYPES) {
-      
+      if (types[type]) {
+        format.push(types[type].toString());
+      } else {
+        format.push('1');
+      }
     }
+
+    return format;
   }
 }

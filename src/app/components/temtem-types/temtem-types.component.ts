@@ -11,7 +11,7 @@ export class TemtemTypesComponent implements OnInit {
 
   types: string[] = TYPES;
   selectedTypes = [];
-  WeaknessTable: string[];
+  weaknessTable = ['1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1'];
 
   constructor(private temtemTypesService: TemtemTypesService) { }
 
@@ -42,7 +42,7 @@ export class TemtemTypesComponent implements OnInit {
   }
 
   setWeaknessTable() {
-    // this.WeaknessTable = this.temtemType sService.getTypesWeakness(this.selectedTypes);
+    this.weaknessTable = this.temtemTypesService.formatTypes(this.selectedTypes);
   }
 
 }
