@@ -8,8 +8,15 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
+  selectedTypes: string[];
+
   constructor(private router: Router) { }
 
   ngOnInit(): void { }
+
+  getType(type: string) {
+    this.selectedTypes = JSON.parse(type);
+    console.log('TEST: ', this.selectedTypes);
+  }
 
 }

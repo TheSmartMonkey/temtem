@@ -1,3 +1,4 @@
+import { TemtemTableComponent } from './../../components/temtem-table/temtem-table.component';
 import { MatButtonModule } from '@angular/material/button';
 import { TemtemTypesComponent } from './../../components/temtem-types/temtem-types.component';
 import { TemtemSearchComponent } from './../../components/temtem-search/temtem-search.component';
@@ -13,7 +14,8 @@ import { SharedModule } from '../../shared/shared.module';
   declarations: [
     HomeComponent,
     TemtemSearchComponent,
-    TemtemTypesComponent
+    TemtemTypesComponent,
+    TemtemTableComponent
   ],
   imports: [
     CommonModule,

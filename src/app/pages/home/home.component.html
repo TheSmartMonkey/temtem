@@ -1,3 +1,5 @@
 <app-temtem-search></app-temtem-search>
 
-<app-temtem-types></app-temtem-types>
+<app-temtem-types (typeList)="getType($event)"></app-temtem-types>
+
+<app-temtem-table [selectedTypes]="selectedTypes"></app-temtem-table>

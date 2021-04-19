@@ -1,5 +1,4 @@
-import { TemtemTypesService } from './../../services/temtem-types.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { TYPES } from '../../models/types';
 
 @Component({
@@ -11,17 +10,19 @@ export class TemtemTypesComponent implements OnInit {
 
   types: string[] = TYPES;
   selectedTypes = [];
-  weaknessTable = ['1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1'];
 
-  constructor(private temtemTypesService: TemtemTypesService) { }
+  @Output() typeList = new EventEmitter(); 
+
+  constructor() { }
 
   ngOnInit() {
+    this.typeList.emit(JSON.stringify(this.selectedTypes));
   }
 
   onClickType(type: string) {
     this.setButtonToGrey(type);
     this.setSelectedTypes(type);
-    this.setWeaknessTable();
+    this.typeList.emit(JSON.stringify(this.selectedTypes));
   }
 
   setButtonToGrey(type: string) {
@@ -39,10 +40,6 @@ export class TemtemTypesComponent implements OnInit {
     } else {
       this.selectedTypes.push(type);
     }
-  }
-
-  setWeaknessTable() {
-    this.weaknessTable = this.temtemTypesService.formatTypes(this.selectedTypes);
   }
 
 }

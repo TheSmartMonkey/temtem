@@ -1,0 +1,20 @@
+<div class="table-container">
+    <table>
+        <caption>Weakness</caption>
+        <thead>
+            <tr>
+                <th *ngFor="let type of types">
+                    {{type}}
+                    <img src="../../../assets/types/{{type}}.png" class="type-icons">
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td *ngFor="let weakness of weaknessTable" [ngClass]="{'colorx1': weakness === '1', 'colorx2': weakness === '2', 'colorx4': weakness === '4'}">
+                    x{{weakness}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
