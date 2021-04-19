@@ -2,4 +2,7 @@
 
 <app-temtem-types (typeList)="getType($event)"></app-temtem-types>
 
-<app-temtem-table [selectedTypes]="selectedTypes"></app-temtem-table>
+<app-temtem-table [title]="'Weakness'" [stat]="'resBad'" [selectedTypes]="selectedTypes"></app-temtem-table>
+<app-temtem-table [title]="'Low damage'" [stat]="'damageBad'" [selectedTypes]="selectedTypes"></app-temtem-table>
+<app-temtem-table [title]="'Resilient'" [stat]="'resGood'" [selectedTypes]="selectedTypes"></app-temtem-table>
+<app-temtem-table [title]="'High damage'" [stat]="'damageGood'" [selectedTypes]="selectedTypes"></app-temtem-table>

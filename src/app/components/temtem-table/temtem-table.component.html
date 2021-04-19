@@ -1,6 +1,6 @@
 <div class="table-container">
     <table>
-        <caption>Weakness</caption>
+        <caption>{{title}}</caption>
         <thead>
             <tr>
                 <th *ngFor="let type of types">
@@ -11,8 +11,8 @@
         </thead>
         <tbody>
             <tr>
-                <td *ngFor="let weakness of weaknessTable" [ngClass]="{'colorx1': weakness === '1', 'colorx2': weakness === '2', 'colorx4': weakness === '4'}">
-                    x{{weakness}}
+                <td *ngFor="let item of table" [ngClass]="{'colorx1': item === '1', 'colorx2': item === '2', 'colorx4': item === '4'}">
+                    x{{item}}
                 </td>
             </tr>
         </tbody>

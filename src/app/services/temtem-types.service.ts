@@ -9,10 +9,10 @@ export class TemtemTypesService {
 
   constructor() { }
 
-  getTypesWeakness(temtemTypes: string[]) {
+  getTypesWeakness(temtemTypes: string[], stat: string) {
     const res = {};
     for (const type of temtemTypes) {
-      for (const counter of TYPE_COUNTER[type].resBad) {
+      for (const counter of TYPE_COUNTER[type][stat]) {
         if (res[counter]) {
           res[counter] *= 2;
         } else {
@@ -24,8 +24,8 @@ export class TemtemTypesService {
     return res;
   }
 
-  formatTypes(temtemTypes: string[]): string[] {
-    const types = this.getTypesWeakness(temtemTypes);
+  formatTypes(temtemTypes: string[], stat: string): string[] {
+    const types = this.getTypesWeakness(temtemTypes, stat);
     const format = [];
 
     for (const type of TYPES) {

@@ -16,7 +16,6 @@ export class HomeComponent implements OnInit {
 
   getType(type: string) {
     this.selectedTypes = JSON.parse(type);
-    console.log('TEST: ', this.selectedTypes);
   }
 
 }

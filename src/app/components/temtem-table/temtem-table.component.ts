@@ -11,23 +11,26 @@ import { TemtemTypesService } from './../../services/temtem-types.service';
 export class TemtemTableComponent implements OnInit {
 
   types: string[] = TYPES;
-  weaknessTable = ['1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1'];
+  table = ['1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1'];
+
+  @Input() title: string;
+  @Input() stat: string;
 
   private _selectedTypes = [];
   @Input() set selectedTypes(selectedTypes: string[]) {
     this._selectedTypes = selectedTypes;
-    this.setWeaknessTable();
+    this.setTable();
   }
   get selectedTypes(): string[] { return this._selectedTypes; }
 
   constructor(private temtemTypesService: TemtemTypesService) { }
 
   ngOnInit(): void {
-    this.setWeaknessTable();
+    this.setTable();
   }
 
-  setWeaknessTable() {
-    this.weaknessTable = this.temtemTypesService.formatTypes(this.selectedTypes);
+  setTable() {
+    this.table = this.temtemTypesService.formatTypes(this.selectedTypes, this.stat);
   }
 
 }
