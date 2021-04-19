@@ -42,4 +42,17 @@ export class TemtemTypesComponent implements OnInit {
     }
   }
 
+  resetTypes() {
+    this.removeGreyBorder();
+    this.selectedTypes = [];
+    this.typeList.emit(JSON.stringify(this.selectedTypes));
+  }
+
+  removeGreyBorder() {
+    for (const type of TYPES) {
+      const typeButton = document.getElementById(type);
+      typeButton.style.border = '';
+    }
+  }
+
 }
