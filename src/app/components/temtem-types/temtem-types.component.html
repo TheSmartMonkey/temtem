@@ -19,7 +19,7 @@
         </thead>
         <tbody>
             <tr>
-                <td *ngFor="let weakness of weaknessTable">
+                <td *ngFor="let weakness of weaknessTable" [ngClass]="{'colorx1': weakness === '1', 'colorx2': weakness === '2', 'colorx4': weakness === '4'}">
                     x{{weakness}}
                 </td>
             </tr>

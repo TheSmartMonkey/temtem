@@ -1,3 +1,5 @@
+@import '../../../scss/_variables';
+
 .container {
     display: flex;
     justify-content: center;
@@ -36,12 +38,12 @@
     
         thead,
         tfoot {
-            background-color: #3f87a6;
+            background-color: $main-blue;
             color: #fff;
         }
     
         tbody {
-            background-color: #e4f0f5;
+            background-color: $main-light-blue;
         }
     
         caption {
@@ -67,4 +69,16 @@
             text-align: center;
         }
     }
+}
+
+.colorx1 {
+    background-color: $main-light-blue;
+}
+
+.colorx2 {
+    background-color: $orange;
+}
+
+.colorx4 {
+    background-color: $red;
 }
