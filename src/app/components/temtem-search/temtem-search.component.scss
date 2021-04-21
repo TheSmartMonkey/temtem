@@ -1,5 +1,5 @@
 .container {
-    margin-bottom: 40px;
+    min-height: 600px;
 
     .filter-container {
         display: flex;
@@ -13,6 +13,8 @@
     .table-container {
         display: flex;
         justify-content: center;
+        overflow: auto;
+        max-height: 500px;
 
         table {
             width: 90%;
