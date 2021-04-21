@@ -11,7 +11,8 @@
         </thead>
         <tbody>
             <tr>
-                <td *ngFor="let item of table" [ngClass]="{'colorx1': item === '1', 'colorx2': item === '2', 'colorx4': item === '4'}">
+                <td *ngFor="let item of table" 
+                    [ngClass]="{'colorx1': item === '1', 'colorx2': item === '2' || item === '1/2', 'colorx4': item === '4' || item === '1/4'}">
                     x{{item}}
                 </td>
             </tr>

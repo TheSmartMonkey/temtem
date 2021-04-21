@@ -30,7 +30,11 @@ export class TemtemTableComponent implements OnInit {
   }
 
   setTable() {
-    this.table = this.temtemTypesService.formatTypes(this.selectedTypes, this.stat);
+    if (this.title === 'Resistance') {
+      this.table = this.temtemTypesService.getResistance(this.selectedTypes);
+    } else if (this.title === 'Damages') {
+      this.table = this.temtemTypesService.getDamages(this.selectedTypes);
+    }
   }
 
 }

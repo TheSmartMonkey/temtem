@@ -20,9 +20,11 @@ export class TemtemTypesComponent implements OnInit {
   }
 
   onClickType(type: string) {
-    this.setButtonToGrey(type);
-    this.setSelectedTypes(type);
-    this.typeList.emit(JSON.stringify(this.selectedTypes));
+    if (this.limitSelectedTypes(type)) {
+      this.setButtonToGrey(type);
+      this.setSelectedTypes(type);
+      this.typeList.emit(JSON.stringify(this.selectedTypes));
+    }
   }
 
   setButtonToGrey(type: string) {
@@ -40,6 +42,15 @@ export class TemtemTypesComponent implements OnInit {
     } else {
       this.selectedTypes.push(type);
     }
+  }
+
+  limitSelectedTypes(type: string): boolean {
+    if (this.selectedTypes.length < 2) {
+      return true;
+    } else if (this.selectedTypes.includes(type)) {
+      return true;
+    }
+    return false;
   }
 
   resetTypes() {
