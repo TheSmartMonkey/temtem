@@ -15,7 +15,7 @@ export interface Temtem {
 export class TemtemSearchComponent implements OnInit {
 
   TABLE_ELEMENTS: Temtem[] = [];
-  displayedColumns: string[] = ['name', 'type'];
+  displayedColumns: string[] = ['image', 'name', 'type'];
   dataSource: any
 
   constructor() { }

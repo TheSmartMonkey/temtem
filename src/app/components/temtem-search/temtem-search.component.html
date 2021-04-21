@@ -2,28 +2,36 @@
     <div class="filter-container">
         <mat-form-field>
             <mat-label>Filter</mat-label>
-            <input matInput (keyup)="applyFilter($event)" placeholder="Enter a temtem" #input>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Enter a temtem" #input autofocus>
         </mat-form-field>
     </div>
 
     <div class="table-container">
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-    
+
+            <!-- Image Column -->
+            <ng-container matColumnDef="image">
+                <th mat-header-cell *matHeaderCellDef> Image </th>
+                <td mat-cell *matCellDef="let element">
+                    <img src="../../../assets/temtem/{{element.name}}.png">
+                </td>
+            </ng-container>
+
             <!-- Name Column -->
             <ng-container matColumnDef="name">
                 <th mat-header-cell *matHeaderCellDef> Name </th>
                 <td mat-cell *matCellDef="let element"> {{element.name}} </td>
             </ng-container>
-        
+
             <!-- Type Column -->
             <ng-container matColumnDef="type">
                 <th mat-header-cell *matHeaderCellDef> Type </th>
                 <td mat-cell *matCellDef="let element"> {{element.type}} </td>
             </ng-container>
-        
+
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        
+
             <!-- Row shown when there is no matching data. -->
             <tr class="mat-row" *matNoDataRow>
                 <td class="mat-cell" colspan="2">No data matching the filter "{{input.value}}"</td>
@@ -31,4 +39,3 @@
         </table>
     </div>
 </div>
-
