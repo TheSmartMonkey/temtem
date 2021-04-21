@@ -1,0 +1,26 @@
+.container {
+    margin-bottom: 40px;
+
+    .filter-container {
+        display: flex;
+        justify-content: center;
+
+        mat-form-field {
+            min-width: 500px
+        }
+    }
+
+    .table-container {
+        display: flex;
+        justify-content: center;
+
+        table {
+            width: 90%;
+        }
+        
+        .mat-form-field {
+            font-size: 14px;
+            width: 100%;
+        }
+    }
+}
