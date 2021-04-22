@@ -1,10 +1,11 @@
+import { TemtemTypesService } from './../../services/temtem-types.service';
 import { TEMTEMS } from './../../models/temtem';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 
 export interface Temtem {
   name: string;
-  type: string;
+  type: string[];
 }
 
 @Component({
@@ -18,18 +19,19 @@ export class TemtemSearchComponent implements OnInit {
   displayedColumns: string[] = ['image', 'name', 'type'];
   dataSource: any
 
-  constructor() { }
+  constructor(private temtemTypesService: TemtemTypesService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.createTemtemData();
     this.dataSource = new MatTableDataSource(this.TABLE_ELEMENTS);
+    this.temtemTypesService.currentTemtemTypeStage.subscribe();
   }
 
   createTemtemData() {
     for (const [key, value] of Object.entries(TEMTEMS)) {
       const element: Temtem = {
         name: key,
-        type: value.toString()
+        type: value
       }
       this.TABLE_ELEMENTS.push(element)
     }
@@ -38,6 +40,10 @@ export class TemtemSearchComponent implements OnInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  onClickTableRow(type: string[]) {
+    this.temtemTypesService.updateTemtemType(type);
   }
 
 }

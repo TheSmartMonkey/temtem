@@ -16,7 +16,6 @@ import { TemtemSearchComponent } from './../../components/temtem-search/temtem-s
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
-import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -32,8 +31,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatButtonModule,
     MatTableModule,
     MatInputModule,
-    MatPaginatorModule,
     BrowserAnimationsModule
+  ],
+  providers: [
+    TemtemTypesComponent
   ]
 })
 export class HomeModule {}

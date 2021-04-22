@@ -18,6 +18,18 @@
 
         table {
             width: 90%;
+
+            .element-row {
+                cursor: pointer;
+            }
+
+            tr.element-row:not(.expanded-row):hover {
+            background: whitesmoke;
+            }
+            
+            tr.element-row:not(.expanded-row):active {
+                background: #efefef;
+            }
         }
         
         .mat-form-field {

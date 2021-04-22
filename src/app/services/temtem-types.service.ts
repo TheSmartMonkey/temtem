@@ -1,13 +1,21 @@
 import { TYPES } from './../models/types';
 import { Injectable } from '@angular/core';
 import { TYPE_COUNTER } from './../models/types-counter';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TemtemTypesService {
 
+  private temtemTypeStage = new BehaviorSubject([]);
+  currentTemtemTypeStage = this.temtemTypeStage.asObservable();
+
   constructor() { }
+
+  updateTemtemType(typeList: string[]) {
+    this.temtemTypeStage.next(typeList)
+  }
 
   getCounters(temtemTypes: string[], stat: string) {
     const res = {};

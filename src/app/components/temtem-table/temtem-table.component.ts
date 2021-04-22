@@ -16,17 +16,15 @@ export class TemtemTableComponent implements OnInit {
   @Input() title: string;
   @Input() stat: string;
 
-  private _selectedTypes = [];
-  @Input() set selectedTypes(selectedTypes: string[]) {
-    this._selectedTypes = selectedTypes;
-    this.setTable();
-  }
-  get selectedTypes(): string[] { return this._selectedTypes; }
+  selectedTypes: string[];
 
   constructor(private temtemTypesService: TemtemTypesService) { }
 
-  ngOnInit(): void {
-    this.setTable();
+  ngOnInit() {
+    this.temtemTypesService.currentTemtemTypeStage.subscribe(type => {
+      this.selectedTypes = type
+      this.setTable();
+    });
   }
 
   setTable() {

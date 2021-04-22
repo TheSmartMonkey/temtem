@@ -1,4 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { TemtemTypesService } from './../../services/temtem-types.service';
+import { AfterViewInit, Component } from '@angular/core';
 import { TYPES } from '../../models/types';
 
 @Component({
@@ -6,33 +7,36 @@ import { TYPES } from '../../models/types';
   templateUrl: './temtem-types.component.html',
   styleUrls: ['./temtem-types.component.scss']
 })
-export class TemtemTypesComponent implements OnInit {
+export class TemtemTypesComponent implements AfterViewInit {
 
   types: string[] = TYPES;
-  selectedTypes = [];
+  selectedTypes: string[];
 
-  @Output() typeList = new EventEmitter(); 
+  constructor(private temtemTypesService: TemtemTypesService) { }
 
-  constructor() { }
-
-  ngOnInit() {
-    this.typeList.emit(JSON.stringify(this.selectedTypes));
+  ngAfterViewInit() {
+    this.temtemTypesService.currentTemtemTypeStage.subscribe(type => {
+      this.selectedTypes = type;
+      this.setButtonsToGrey(type);
+    });
   }
 
   onClickType(type: string) {
     if (this.limitSelectedTypes(type)) {
-      this.setButtonToGrey(type);
       this.setSelectedTypes(type);
-      this.typeList.emit(JSON.stringify(this.selectedTypes));
+      this.temtemTypesService.updateTemtemType(this.selectedTypes);
     }
   }
 
-  setButtonToGrey(type: string) {
-    const typeButton = document.getElementById(type);
-    if (typeButton.style.border) {
-      typeButton.style.border = '';
-    } else {
-      typeButton.style.border = '2px solid grey';
+  setButtonsToGrey(types: string[]) {
+    this.removeGreyBorder();
+    for (const element of types) {
+      const typeButton = document.getElementById(element);
+      if (typeButton.style.border) {
+        typeButton.style.border = '';
+      } else {
+        typeButton.style.border = '2px solid grey';
+      }
     }
   }
 
@@ -56,7 +60,7 @@ export class TemtemTypesComponent implements OnInit {
   resetTypes() {
     this.removeGreyBorder();
     this.selectedTypes = [];
-    this.typeList.emit(JSON.stringify(this.selectedTypes));
+    this.temtemTypesService.updateTemtemType(this.selectedTypes);
   }
 
   removeGreyBorder() {
