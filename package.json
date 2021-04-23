@@ -45,7 +45,9 @@
     "@angular/cdk": "11.2.9",
     "@angular/forms": "^11.0.0 || ^12.0.0-0",
     "@angular/material": "11.2.9",
-    "@electron/remote": "1.0.4"
+    "@electron/remote": "1.0.4",
+    "electron-log": "4.3.4",
+    "update-electron-app": "2.0.1"
   },
   "devDependencies": {
     "@angular-builders/custom-webpack": "11.1.1",

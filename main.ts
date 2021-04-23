@@ -4,6 +4,11 @@ import * as url from 'url';
 
 // Initialize remote module
 require('@electron/remote/main').initialize();
+require('update-electron-app')({
+  repo: 'https://github.com/TheSmartMonkey/temtem',
+  updateInterval: '1 hour',
+  logger: require('electron-log')
+})
 
 let win: BrowserWindow = null;
 const args = process.argv.slice(1),
