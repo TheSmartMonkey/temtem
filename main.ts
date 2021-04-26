@@ -31,6 +31,7 @@ function createWindow(): BrowserWindow {
       contextIsolation: false,  // false if you want to run 2e2 test with Spectron
       enableRemoteModule : true // true if you want to run 2e2 test  with Spectron or use remote module in renderer context (ie. Angular)
     },
+    icon: path.join(__dirname, 'src/assets/icons/favicon.ico')
   });
 
   if (serve) {

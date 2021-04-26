@@ -30,7 +30,7 @@
     "target": ["portable"]
   },
   "portable": {
-    "splashImage": "dist/assets/icons/electron.bmp"
+    "splashImage": "dist/assets/icons/favicon.bmp"
   },
   "mac": {
     "icon": "dist/assets/icons",
