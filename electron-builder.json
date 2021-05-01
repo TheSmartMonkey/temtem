@@ -1,5 +1,5 @@
 {
-  "productName": "angular-electron",
+  "productName": "temtem",
   "directories": {
     "output": "release/"
   },
@@ -37,7 +37,7 @@
     "target": ["dmg"]
   },
   "linux": {
-    "icon": "dist/assets/icons",
+    "icon": "dist/assets/icons/favicon.ico",
     "target": ["AppImage"]
   }
 }

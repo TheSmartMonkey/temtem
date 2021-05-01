@@ -3,7 +3,7 @@ import { SpectronClient } from 'spectron';
 
 import commonSetup from './common-setup';
 
-describe('angular-electron App', function () {
+describe('temtem App', function () {
 
   commonSetup.apply(this);
 

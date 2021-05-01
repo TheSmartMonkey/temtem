@@ -36,9 +36,33 @@ The project will be release soon
     npm start
     ```
 
+* Create the windows installer
+
+    First suppress all files of exe and installer if you did a previous intaller
+
+    ```bash
+    ng build
+    ```
+
+    Copy the `package.json` file in the dist folder
+
+    Go to the root of the project and run this command to create the exe
+
+    ```bash
+    electron-packager dist temtem --platform=win32 --arch=x64
+    ```
+
+    Then at the root of the project create the installer with this command
+
+    ```bash
+    node build.js
+    ```
+
+    Go in the `temtem-installers` folder. Then click on `Setup.exe`
+
 ## What I Learned
 
-* Use a angular project with electron
+* Use a angular project with electron : [angular-electron](https://github.com/maximegris/angular-electron)
 
 * Use a service with BehaviorSubject to share a variable between components
 

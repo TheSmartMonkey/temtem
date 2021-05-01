@@ -1,25 +1,11 @@
 {
-  "name": "angular-electron",
+  "name": "temtem",
   "version": "9.0.7",
-  "description": "Angular 11 with Electron (Typescript + SASS + Hot Reload)",
-  "homepage": "https://github.com/maximegris/angular-electron",
+  "description": "Ulitmate desktop app to help you during temtem fights",
+  "homepage": "https://github.com/TheSmartMonkey/temtem",
   "author": {
-    "name": "Maxime GRIS",
-    "email": "maxime.gris@gmail.com"
+    "name": "TheSmartMonkey"
   },
-  "keywords": [
-    "angular",
-    "angular 11",
-    "electron",
-    "nodejs",
-    "typescript",
-    "spectron",
-    "eslint",
-    "sass",
-    "windows",
-    "mac",
-    "linux"
-  ],
   "main": "main.js",
   "private": true,
   "scripts": {
@@ -83,6 +69,7 @@
     "electron": "12.0.2",
     "electron-builder": "22.10.5",
     "electron-reload": "1.5.0",
+    "electron-winstaller": "5.0.0",
     "eslint": "7.22.0",
     "eslint-plugin-import": "2.22.1",
     "eslint-plugin-jsdoc": "31.6.1",
