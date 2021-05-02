@@ -27,10 +27,10 @@
   ],
   "win": {
     "icon": "dist/assets/icons",
-    "target": ["portable"]
+    "target": ["nsis"]
   },
   "portable": {
-    "splashImage": "dist/assets/icons/favicon.bmp"
+    "splashImage": "dist/assets/icons/favicon.ico"
   },
   "mac": {
     "icon": "dist/assets/icons",

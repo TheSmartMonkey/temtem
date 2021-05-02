@@ -2,7 +2,7 @@
 
 Ulitmate desktop app to help you during temtem fights
 
-[image]
+![APP IMAGE](https://raw.githubusercontent.com/TheSmartMonkey/temtem/main/.github/temtem-app.PNG)
 
 ## Installation
 
@@ -36,29 +36,15 @@ The project will be release soon
     npm start
     ```
 
-* Create the windows installer
-
-    First suppress all files of exe and installer if you did a previous intaller
+* Create the installer
 
     ```bash
-    ng build
+    npm electron:build
     ```
 
-    Copy the `package.json` file in the dist folder
+    Go in the `release` folder. Then click on `temtem Setup 9.0.7.exe`
 
-    Go to the root of the project and run this command to create the exe
-
-    ```bash
-    electron-packager dist temtem --platform=win32 --arch=x64
-    ```
-
-    Then at the root of the project create the installer with this command
-
-    ```bash
-    node build.js
-    ```
-
-    Go in the `temtem-installers` folder. Then click on `Setup.exe`
+    It should install the app
 
 ## What I Learned
 
@@ -71,3 +57,5 @@ The project will be release soon
 * Resize hundreds of images with a nodejs script
 
 * Discovered a new API : [temtem-api](https://github.com/maael/temtem-api)
+
+* Create a installer of an angular-electron project
