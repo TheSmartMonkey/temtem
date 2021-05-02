@@ -2,11 +2,9 @@
 
 Ulitmate desktop app to help you during temtem fights
 
+[DOWNLOAD](https://github.com/TheSmartMonkey/temtem/releases)
+
 ![APP IMAGE](https://github.com/TheSmartMonkey/temtem/blob/master/.github/temtem-app.PNG)
-
-## Installation
-
-The project will be release soon
 
 ## Fonctionnalities
 
