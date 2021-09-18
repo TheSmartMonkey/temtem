@@ -1,11 +1,10 @@
 <div class="container">
     <div *ngFor="let type of types" class="button-container">
         <button mat-fab class="btn-type" [id]="type" (click)="onClickType(type)">
-            <img src="./assets/types/{{type}}.png" class="type-icons">
+            <img src="./assets/types/{{type}}.png" class="type-icons" [alt]="type" [title]="type">
         </button>
     </div>
 </div>
-
 
 <div class="btn-reset">
     <button mat-raised-button color="primary" (click)="resetTypes()">
