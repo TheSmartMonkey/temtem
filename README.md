@@ -2,6 +2,10 @@
 
 Ulitmate desktop app to help you during temtem fights
 
+If you like my app and want to support me, I'd appreciate a coffee :)
+
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/laurentvandelle)
+
 [DOWNLOAD](https://github.com/TheSmartMonkey/temtem/releases)
 
 ![APP IMAGE](https://github.com/TheSmartMonkey/temtem/blob/master/.github/temtem-app.PNG)
