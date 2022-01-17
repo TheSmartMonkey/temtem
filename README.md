@@ -41,7 +41,7 @@ If you like my app and want to support me, I'd appreciate a coffee :)
 * Create the installer
 
     ```bash
-    npm electron:build
+    npm run electron:build
     ```
 
     Go in the `release` folder. Then click on `temtem Setup 9.0.7.exe`
