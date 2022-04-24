@@ -27,15 +27,24 @@
             <ng-container matColumnDef="type">
                 <th mat-header-cell *matHeaderCellDef> Type </th>
                 <td mat-cell *matCellDef="let element">
-                    <img *ngFor="let item of element.type" src="./assets/types/{{item}}.png" height="32px" width="32px" [title]="item">
+                    <img *ngFor="let item of element.type" src="./assets/types/{{item}}.png" height="32px" width="32px"
+                        [title]="item">
+                </td>
+            </ng-container>
+
+            <!-- TV Column -->
+            <ng-container matColumnDef="tv">
+                <th mat-header-cell *matHeaderCellDef> TV </th>
+                <td mat-cell *matCellDef="let element">
+                    <div *ngFor="let item of element.tv | keyvalue">
+                        {{item.key | uppercase }} +{{item.value}}
+                    </div>
                 </td>
             </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;" 
-                class="element-row"
-                (click)="onClickTableRow(row.type)"
-                title="CLICK TO SELECT THE TEMTEM TYPES">
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="element-row"
+                (click)="onClickTableRow(row.type)" title="CLICK TO SELECT THE TEMTEM TYPES">
             </tr>
 
             <!-- Row shown when there is no matching data. -->
