@@ -7,6 +7,7 @@ export interface Temtem {
   name: string;
   type: string[];
   tv: TemtemTv;
+  tvFilter: string;
 }
 
 interface TemtemTv {
@@ -58,6 +59,7 @@ export class TemtemSearchComponent implements OnInit {
         name: key,
         type: value.types,
         tv: this.formatTemtemTv(value.tv),
+        tvFilter: JSON.stringify(this.formatTemtemTv(value.tv))
       };
       this.TABLE_ELEMENTS.push(element);
     }
