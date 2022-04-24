@@ -55,11 +55,12 @@ export class TemtemSearchComponent implements OnInit {
 
   private createTemtemData(): void {
     for (const [key, value] of Object.entries(TEMTEMS)) {
+      const temtemTv = this.formatTemtemTv(value.tv);
       const element: Temtem = {
         name: key,
         type: value.types,
-        tv: this.formatTemtemTv(value.tv),
-        tvFilter: JSON.stringify(this.formatTemtemTv(value.tv))
+        tv: temtemTv,
+        tvFilter: JSON.stringify(temtemTv)
       };
       this.TABLE_ELEMENTS.push(element);
     }
