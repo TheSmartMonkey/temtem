@@ -27,7 +27,7 @@ interface TemtemTv {
 export class TemtemSearchComponent implements OnInit {
 
   TABLE_ELEMENTS: Temtem[] = [];
-  displayedColumns: string[] = ['image', 'name', 'type', 'tv'];
+  displayedColumns: string[] = ['image', 'name', 'type', 'tv', 'info'];
   dataSource: any;
 
   constructor(private temtemTypesService: TemtemTypesService) { }
@@ -45,6 +45,11 @@ export class TemtemSearchComponent implements OnInit {
 
   onClickTableRow(type: string[]): void {
     this.temtemTypesService.updateTemtemType(type);
+  }
+
+  goToWiki(temtem: string): void {
+    const url = `https://temtem.fandom.com/wiki/${temtem}`;
+    window.open(url, "_blank");
   }
 
   private createTemtemData(): void {
