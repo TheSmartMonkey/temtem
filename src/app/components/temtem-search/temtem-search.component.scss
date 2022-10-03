@@ -1,40 +1,40 @@
 .container {
-    min-height: 600px;
+  min-height: 600px;
 
-    .filter-container {
-        display: flex;
-        justify-content: center;
+  .filter-container {
+    display: flex;
+    justify-content: center;
 
-        mat-form-field {
-            min-width: 500px
-        }
+    mat-form-field {
+      min-width: 500px;
+    }
+  }
+
+  .table-container {
+    display: flex;
+    justify-content: center;
+    overflow: auto;
+    max-height: 500px;
+
+    table {
+      width: 90%;
+
+      .element-row {
+        cursor: pointer;
+      }
+
+      tr.element-row:not(.expanded-row):hover {
+        background: whitesmoke;
+      }
+
+      tr.element-row:not(.expanded-row):active {
+        background: #efefef;
+      }
     }
 
-    .table-container {
-        display: flex;
-        justify-content: center;
-        overflow: auto;
-        max-height: 500px;
-
-        table {
-            width: 90%;
-
-            .element-row {
-                cursor: pointer;
-            }
-
-            tr.element-row:not(.expanded-row):hover {
-            background: whitesmoke;
-            }
-            
-            tr.element-row:not(.expanded-row):active {
-                background: #efefef;
-            }
-        }
-        
-        .mat-form-field {
-            font-size: 14px;
-            width: 100%;
-        }
+    .mat-form-field {
+      font-size: 14px;
+      width: 100%;
     }
+  }
 }

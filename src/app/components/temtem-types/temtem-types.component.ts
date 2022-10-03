@@ -5,17 +5,16 @@ import { TYPES } from '../../models/types';
 @Component({
   selector: 'app-temtem-types',
   templateUrl: './temtem-types.component.html',
-  styleUrls: ['./temtem-types.component.scss']
+  styleUrls: ['./temtem-types.component.scss'],
 })
 export class TemtemTypesComponent implements AfterViewInit {
-
   types: string[] = TYPES;
   selectedTypes: string[];
 
-  constructor(private temtemTypesService: TemtemTypesService) { }
+  constructor(private temtemTypesService: TemtemTypesService) {}
 
   ngAfterViewInit() {
-    this.temtemTypesService.currentTemtemTypeStage.subscribe(type => {
+    this.temtemTypesService.currentTemtemTypeStage.subscribe((type) => {
       this.selectedTypes = type;
       this.setButtonsToGrey(type);
     });
@@ -69,5 +68,4 @@ export class TemtemTypesComponent implements AfterViewInit {
       typeButton.style.border = '';
     }
   }
-
 }

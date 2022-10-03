@@ -1,21 +1,33 @@
 <div class="table-container">
-    <table>
-        <caption>{{title}}</caption>
-        <thead>
-            <tr>
-                <th *ngFor="let type of types">
-                    {{type}}
-                    <img src="./assets/types/{{type}}.png" class="type-icons">
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td *ngFor="let item of table" 
-                    [ngClass]="{'colorx1': item === '1', 'colorx2': item === '2', 'colorx4': item === '4', 'colorx12': item === '1/2', 'colorx14': item === '1/4'}">
-                    x{{item}}
-                </td>
-            </tr>
-        </tbody>
-    </table>
+  <table>
+    <caption>
+      {{
+        title
+      }}
+    </caption>
+    <thead>
+      <tr>
+        <th *ngFor="let type of types">
+          {{ type }}
+          <img src="./assets/types/{{ type }}.png" class="type-icons" />
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td
+          *ngFor="let item of table"
+          [ngClass]="{
+            colorx1: item === '1',
+            colorx2: item === '2',
+            colorx4: item === '4',
+            colorx12: item === '1/2',
+            colorx14: item === '1/4'
+          }"
+        >
+          x{{ item }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>

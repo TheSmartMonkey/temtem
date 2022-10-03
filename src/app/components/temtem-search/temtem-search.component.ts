@@ -23,15 +23,14 @@ interface TemtemTv {
 @Component({
   selector: 'app-temtem-search',
   templateUrl: './temtem-search.component.html',
-  styleUrls: ['./temtem-search.component.scss']
+  styleUrls: ['./temtem-search.component.scss'],
 })
 export class TemtemSearchComponent implements OnInit {
-
   TABLE_ELEMENTS: Temtem[] = [];
   displayedColumns: string[] = ['image', 'name', 'type', 'tv', 'info'];
   dataSource: any;
 
-  constructor(private temtemTypesService: TemtemTypesService) { }
+  constructor(private temtemTypesService: TemtemTypesService) {}
 
   ngOnInit(): void {
     this.createTemtemData();
@@ -50,7 +49,7 @@ export class TemtemSearchComponent implements OnInit {
 
   goToWiki(temtem: string): void {
     const url = `https://temtem.fandom.com/wiki/${temtem}`;
-    window.open(url, "_blank");
+    window.open(url, '_blank');
   }
 
   private createTemtemData(): void {
@@ -60,7 +59,7 @@ export class TemtemSearchComponent implements OnInit {
         name: key,
         type: value.types,
         tv: temtemTv,
-        tvFilter: JSON.stringify(temtemTv)
+        tvFilter: JSON.stringify(temtemTv),
       };
       this.TABLE_ELEMENTS.push(element);
     }
@@ -73,5 +72,4 @@ export class TemtemSearchComponent implements OnInit {
     }
     return remaningTv;
   }
-
 }

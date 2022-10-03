@@ -1,10 +1,10 @@
-import { Injectable } from "@angular/core";
-import { BehaviorSubject } from "rxjs";
-import { numberRange, TYPES, typesRange } from "./../models/types";
-import { TYPE_COUNTER } from "./../models/types-counter";
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { numberRange, TYPES, typesRange } from './../models/types';
+import { TYPE_COUNTER } from './../models/types-counter';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class TemtemTypesService {
   private temtemTypeStage = new BehaviorSubject([] as string[]);
@@ -17,27 +17,24 @@ export class TemtemTypesService {
   }
 
   getResistance(temtemTypes: string[]): string[] {
-    const good = this.setCounters(temtemTypes, "resGood");
-    const bad = this.setCounters(temtemTypes, "resBad");
+    const good = this.setCounters(temtemTypes, 'resGood');
+    const bad = this.setCounters(temtemTypes, 'resBad');
     const calculation = this.calculateCounter(good, bad);
     const response = this.formatResponse(calculation);
 
-    return response ? response : [];
+    return response ?? [];
   }
 
   getDamages(temtemTypes: string[]): string[] {
-    const good = this.setCounters(temtemTypes, "damageGood");
-    const bad = this.setCounters(temtemTypes, "damageBad");
+    const good = this.setCounters(temtemTypes, 'damageGood');
+    const bad = this.setCounters(temtemTypes, 'damageBad');
     const calculation = this.calculateDamages(good, bad, temtemTypes.length);
     const response = this.formatResponse(calculation);
 
-    return response ? response : [];
+    return response ?? [];
   }
 
-  private getCounters(
-    temtemTypes: string[],
-    stat: string
-  ): { [key: string]: numberRange } {
+  private getCounters(temtemTypes: string[], stat: string): { [key: string]: numberRange } {
     const response = {};
     for (const type of temtemTypes) {
       for (const counter of TYPE_COUNTER[type][stat]) {
@@ -67,25 +64,17 @@ export class TemtemTypesService {
     return format;
   }
 
-  private calculateCounter(
-    goodStat: numberRange[],
-    badStat: numberRange[]
-  ): typesRange[] {
+  private calculateCounter(goodStat: numberRange[], badStat: numberRange[]): typesRange[] {
     const response: typesRange[] = [];
     for (let i = 0; i < goodStat.length; i++) {
-      const calculation: typesRange = (badStat[i] *
-        (1 / goodStat[i])) as typesRange;
+      const calculation: typesRange = (badStat[i] * (1 / goodStat[i])) as typesRange;
       response.push(calculation);
     }
 
     return response;
   }
 
-  private calculateDamages(
-    goodStat: numberRange[],
-    badStat: numberRange[],
-    typesLength: number
-  ): typesRange[] {
+  private calculateDamages(goodStat: numberRange[], badStat: numberRange[], typesLength: number): typesRange[] {
     const response: typesRange[] = [];
     for (let i = 0; i < goodStat.length; i++) {
       if (goodStat[i] === 2 || goodStat[i] === 4) {
@@ -106,9 +95,9 @@ export class TemtemTypesService {
     const format: string[] = [];
     for (const element of response) {
       if (element === 0.5) {
-        format.push("1/2");
+        format.push('1/2');
       } else if (element === 0.25) {
-        format.push("1/4");
+        format.push('1/4');
       } else {
         format.push(element.toString());
       }

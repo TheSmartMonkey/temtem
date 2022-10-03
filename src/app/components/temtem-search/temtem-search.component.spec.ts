@@ -8,9 +8,8 @@ describe('TemtemSearchComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TemtemSearchComponent ]
-    })
-    .compileComponents();
+      declarations: [TemtemSearchComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

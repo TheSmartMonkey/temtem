@@ -2,14 +2,12 @@ import { TYPES } from './../../models/types';
 import { Component, Input, OnInit } from '@angular/core';
 import { TemtemTypesService } from './../../services/temtem-types.service';
 
-
 @Component({
   selector: 'app-temtem-table',
   templateUrl: './temtem-table.component.html',
-  styleUrls: ['./temtem-table.component.scss']
+  styleUrls: ['./temtem-table.component.scss'],
 })
 export class TemtemTableComponent implements OnInit {
-
   types: string[] = TYPES;
   table = ['1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1'];
 
@@ -18,11 +16,11 @@ export class TemtemTableComponent implements OnInit {
 
   selectedTypes: string[];
 
-  constructor(private temtemTypesService: TemtemTypesService) { }
+  constructor(private temtemTypesService: TemtemTypesService) {}
 
   ngOnInit() {
-    this.temtemTypesService.currentTemtemTypeStage.subscribe(type => {
-      this.selectedTypes = type
+    this.temtemTypesService.currentTemtemTypeStage.subscribe((type) => {
+      this.selectedTypes = type;
       this.setTable();
     });
   }
@@ -34,5 +32,4 @@ export class TemtemTableComponent implements OnInit {
       this.table = this.temtemTypesService.getDamages(this.selectedTypes);
     }
   }
-
 }

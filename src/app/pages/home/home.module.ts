@@ -5,7 +5,7 @@ import { HomeRoutingModule } from './home-routing.module';
 
 import { HomeComponent } from './home.component';
 import { SharedModule } from '../../shared/shared.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Pages
 import { TemtemTableComponent } from './../../components/temtem-table/temtem-table.component';
@@ -18,23 +18,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
-  declarations: [
-    HomeComponent,
-    TemtemSearchComponent,
-    TemtemTypesComponent,
-    TemtemTableComponent
-  ],
-  imports: [
-    CommonModule,
-    SharedModule,
-    HomeRoutingModule,
-    MatButtonModule,
-    MatTableModule,
-    MatInputModule,
-    BrowserAnimationsModule
-  ],
-  providers: [
-    TemtemTypesComponent
-  ]
+  declarations: [HomeComponent, TemtemSearchComponent, TemtemTypesComponent, TemtemTableComponent],
+  imports: [CommonModule, SharedModule, HomeRoutingModule, MatButtonModule, MatTableModule, MatInputModule, BrowserAnimationsModule],
+  providers: [TemtemTypesComponent],
 })
 export class HomeModule {}
