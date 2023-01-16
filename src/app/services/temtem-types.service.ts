@@ -7,18 +7,18 @@ import { TYPE_COUNTER } from './../models/types-counter';
   providedIn: 'root',
 })
 export class TemtemTypesService {
-  private temtemTypeStage = new BehaviorSubject([] as string[]);
-  currentTemtemTypeStage = this.temtemTypeStage.asObservable();
+  private selectedTypesSubject = new BehaviorSubject([] as string[]);
+  currentSelectedTypesSubject = this.selectedTypesSubject.asObservable();
 
   constructor() {}
 
-  updateTemtemType(typeList: string[]): void {
-    this.temtemTypeStage.next(typeList);
+  updateSelectedTypes(selectedTypes: string[]): void {
+    this.selectedTypesSubject.next(selectedTypes);
   }
 
-  getResistance(temtemTypes: string[]): string[] {
-    const good = this.setCounters(temtemTypes, 'resGood');
-    const bad = this.setCounters(temtemTypes, 'resBad');
+  getResistance(selectedTypes: string[]): string[] {
+    const good = this.setCounters(selectedTypes, 'resGood');
+    const bad = this.setCounters(selectedTypes, 'resBad');
     const calculation = this.calculateCounter(good, bad);
     const response = this.formatResponse(calculation);
 

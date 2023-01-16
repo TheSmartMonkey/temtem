@@ -1,5 +1,5 @@
-import { TYPES } from './../../models/types';
 import { Component, Input, OnInit } from '@angular/core';
+import { TYPES } from './../../models/types';
 import { TemtemTypesService } from './../../services/temtem-types.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { TemtemTypesService } from './../../services/temtem-types.service';
 })
 export class TemtemTableComponent implements OnInit {
   types: string[] = TYPES;
-  table = ['1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1'];
+  table = new Array(TYPES.length).fill('1');
 
   @Input() title: string;
   @Input() stat: string;
@@ -18,18 +18,24 @@ export class TemtemTableComponent implements OnInit {
 
   constructor(private temtemTypesService: TemtemTypesService) {}
 
-  ngOnInit() {
-    this.temtemTypesService.currentTemtemTypeStage.subscribe((type) => {
+  ngOnInit(): void {
+    this.temtemTypesService.currentSelectedTypesSubject.subscribe((type) => {
       this.selectedTypes = type;
       this.setTable();
     });
   }
 
-  setTable() {
-    if (this.title === 'Resistance') {
-      this.table = this.temtemTypesService.getResistance(this.selectedTypes);
-    } else if (this.title === 'Damages') {
-      this.table = this.temtemTypesService.getDamages(this.selectedTypes);
+  setTable(): void {
+    switch (this.title) {
+      case 'Resistance':
+        this.table = this.temtemTypesService.getResistance(this.selectedTypes);
+        break;
+      case 'Damages':
+        this.table = this.temtemTypesService.getDamages(this.selectedTypes);
+        break;
+      default:
+        this.table = this.temtemTypesService.getDamages(this.selectedTypes);
+        break;
     }
   }
 }

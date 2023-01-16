@@ -1,7 +1,7 @@
-import { TemtemTypesService } from './../../services/temtem-types.service';
-import { TEMTEMS } from './../../models/temtem';
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { TEMTEMS } from './../../models/temtem';
+import { TemtemTypesService } from './../../services/temtem-types.service';
 
 export interface Temtem {
   name: string;
@@ -35,7 +35,7 @@ export class TemtemSearchComponent implements OnInit {
   ngOnInit(): void {
     this.createTemtemData();
     this.dataSource = new MatTableDataSource(this.TABLE_ELEMENTS);
-    this.temtemTypesService.currentTemtemTypeStage.subscribe();
+    this.temtemTypesService.currentSelectedTypesSubject.subscribe();
   }
 
   applyFilter(event: Event): void {
@@ -44,7 +44,7 @@ export class TemtemSearchComponent implements OnInit {
   }
 
   onClickTableRow(type: string[]): void {
-    this.temtemTypesService.updateTemtemType(type);
+    this.temtemTypesService.updateSelectedTypes(type);
   }
 
   goToWiki(temtem: string): void {
