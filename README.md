@@ -12,52 +12,52 @@ If you like my app and want to support me, I'd appreciate a coffee :)
 
 ## Fonctionnalities
 
-* Temtem table on damages by type
+- Temtem table on damages by type
 
-* Temtem table on resistance by type
+- Temtem table on resistance by type
 
-* Temtem datatable on every temtem with there types
+- Temtem datatable on every temtem with there types
 
 ## For Devs
 
-* Start the project
+- Start the project
 
-    ```bash
-    git clone https://github.com/TheSmartMonkey/temtem.git
-    ```
+  ```bash
+  git clone https://github.com/TheSmartMonkey/temtem.git
+  ```
 
-    ```bash
-    npm install
-    ```
+  ```bash
+  npm install
+  ```
 
-    ```bash
-    npm install -g @angular/cli
-    ```
+  ```bash
+  npm install -g @angular/cli
+  ```
 
-    ```bash
-    npm start
-    ```
+  ```bash
+  npm start
+  ```
 
-* Create the installer
+- Create the installer
 
-    ```bash
-    npm run electron:build
-    ```
+  ```bash
+  npm run electron:build
+  ```
 
-    Go in the `release` folder. Then click on `temtem Setup 9.0.7.exe`
+  Go in the `release` folder. Then click on `temtem Setup 9.0.7.exe`
 
-    It should install the app
+  It should install the app
 
 ## What I Learned
 
-* Use a angular project with electron : [angular-electron](https://github.com/maximegris/angular-electron)
+- Use a angular project with electron : [angular-electron](https://github.com/maximegris/angular-electron)
 
-* Use a service with BehaviorSubject to share a variable between components
+- Use a service with BehaviorSubject to share a variable between components
 
-* Parse a API using nodejs
+- Parse a API using nodejs
 
-* Resize hundreds of images with a nodejs script
+- Resize hundreds of images with a nodejs script
 
-* Discovered a new API : [temtem-api](https://github.com/maael/temtem-api)
+- Discovered a new API : [temtem-api](https://github.com/maael/temtem-api)
 
-* Create a installer of an angular-electron project
+- Create a installer of an angular-electron project

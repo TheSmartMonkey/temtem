@@ -1,7 +1,7 @@
-import { TemtemTypesService } from './../../services/temtem-types.service';
-import { TEMTEMS } from './../../models/temtem';
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { TEMTEMS } from './../../models/temtem';
+import { TemtemTypesService } from './../../services/temtem-types.service';
 
 export interface Temtem {
   name: string;
@@ -23,20 +23,19 @@ interface TemtemTv {
 @Component({
   selector: 'app-temtem-search',
   templateUrl: './temtem-search.component.html',
-  styleUrls: ['./temtem-search.component.scss']
+  styleUrls: ['./temtem-search.component.scss'],
 })
 export class TemtemSearchComponent implements OnInit {
-
   TABLE_ELEMENTS: Temtem[] = [];
   displayedColumns: string[] = ['image', 'name', 'type', 'tv', 'info'];
   dataSource: any;
 
-  constructor(private temtemTypesService: TemtemTypesService) { }
+  constructor(private temtemTypesService: TemtemTypesService) {}
 
   ngOnInit(): void {
     this.createTemtemData();
     this.dataSource = new MatTableDataSource(this.TABLE_ELEMENTS);
-    this.temtemTypesService.currentTemtemTypeStage.subscribe();
+    this.temtemTypesService.currentSelectedTypesSubject.subscribe();
   }
 
   applyFilter(event: Event): void {
@@ -45,12 +44,12 @@ export class TemtemSearchComponent implements OnInit {
   }
 
   onClickTableRow(type: string[]): void {
-    this.temtemTypesService.updateTemtemType(type);
+    this.temtemTypesService.updateSelectedTypes(type);
   }
 
   goToWiki(temtem: string): void {
     const url = `https://temtem.fandom.com/wiki/${temtem}`;
-    window.open(url, "_blank");
+    window.open(url, '_blank');
   }
 
   private createTemtemData(): void {
@@ -60,7 +59,7 @@ export class TemtemSearchComponent implements OnInit {
         name: key,
         type: value.types,
         tv: temtemTv,
-        tvFilter: JSON.stringify(temtemTv)
+        tvFilter: JSON.stringify(temtemTv),
       };
       this.TABLE_ELEMENTS.push(element);
     }
@@ -73,5 +72,4 @@ export class TemtemSearchComponent implements OnInit {
     }
     return remaningTv;
   }
-
 }

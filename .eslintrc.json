@@ -7,9 +7,7 @@
   },
   "overrides": [
     {
-      "files": [
-        "*.ts"
-      ],
+      "files": ["*.ts"],
       "extends": [
         "eslint:recommended",
         "plugin:@typescript-eslint/eslint-recommended",
@@ -19,21 +17,13 @@
       "parser": "@typescript-eslint/parser",
       "parserOptions": {
         "ecmaVersion": 10,
-        "project": [
-          "./tsconfig.serve.json",
-          "./src/tsconfig.app.json",
-          "./src/tsconfig.spec.json",
-          "./e2e/tsconfig.e2e.json"
-        ],
+        "project": ["./tsconfig.serve.json", "./src/tsconfig.app.json", "./src/tsconfig.spec.json", "./e2e/tsconfig.e2e.json"],
         "sourceType": "module",
         "ecmaFeatures": {
           "modules": true
         }
       },
-      "plugins": [
-        "@typescript-eslint",
-        "@angular-eslint/eslint-plugin"
-      ],
+      "plugins": ["@typescript-eslint", "@angular-eslint/eslint-plugin"],
       "rules": {
         "@typescript-eslint/indent": [
           "error",
@@ -65,13 +55,9 @@
       }
     },
     {
-      "files": [
-        "*.component.html"
-      ],
+      "files": ["*.component.html"],
       "parser": "@angular-eslint/template-parser",
-      "plugins": [
-        "@angular-eslint/template"
-      ],
+      "plugins": ["@angular-eslint/template"],
       "rules": {
         "@angular-eslint/template/banana-in-box": "error",
         "@angular-eslint/template/no-negated-async": "error"

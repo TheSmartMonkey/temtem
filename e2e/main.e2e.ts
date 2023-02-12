@@ -4,12 +4,11 @@ import { SpectronClient } from 'spectron';
 import commonSetup from './common-setup';
 
 describe('temtem App', function () {
-
   commonSetup.apply(this);
 
   let client: SpectronClient;
 
-  beforeEach(function() {
+  beforeEach(function () {
     client = this.app.client;
   });
 
@@ -23,5 +22,4 @@ describe('temtem App', function () {
     const text = await elem.getText();
     expect(text).to.equal('App works !');
   });
-
 });

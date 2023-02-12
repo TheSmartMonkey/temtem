@@ -1,54 +1,51 @@
-import { TemtemTypesService } from './../../services/temtem-types.service';
-import { AfterViewInit, Component } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Output } from '@angular/core';
 import { TYPES } from '../../models/types';
+import { TemtemTypesService } from './../../services/temtem-types.service';
 
 @Component({
   selector: 'app-temtem-types',
   templateUrl: './temtem-types.component.html',
-  styleUrls: ['./temtem-types.component.scss']
+  styleUrls: ['./temtem-types.component.scss'],
 })
 export class TemtemTypesComponent implements AfterViewInit {
-
   types: string[] = TYPES;
-  selectedTypes: string[];
+  selectedTypes: string[] = [];
 
-  constructor(private temtemTypesService: TemtemTypesService) { }
+  @Output() selectedTypesEvent = new EventEmitter<string[]>();
 
-  ngAfterViewInit() {
-    this.temtemTypesService.currentTemtemTypeStage.subscribe(type => {
+  constructor(private temtemTypesService: TemtemTypesService) {}
+
+  ngAfterViewInit(): void {
+    this.temtemTypesService.currentSelectedTypesSubject.subscribe((type) => {
       this.selectedTypes = type;
-      this.setButtonsToGrey(type);
     });
   }
 
-  onClickType(type: string) {
-    if (this.limitSelectedTypes(type)) {
+  onClickType(type: string): void {
+    if (this.isSelectedTypesLimited(type)) {
       this.setSelectedTypes(type);
-      this.temtemTypesService.updateTemtemType(this.selectedTypes);
+      this.temtemTypesService.updateSelectedTypes(this.selectedTypes);
     }
   }
 
-  setButtonsToGrey(types: string[]) {
-    this.removeGreyBorder();
-    for (const element of types) {
-      const typeButton = document.getElementById(element);
-      if (typeButton.style.border) {
-        typeButton.style.border = '';
-      } else {
-        typeButton.style.border = '2px solid grey';
-      }
-    }
+  resetTypes(): void {
+    this.selectedTypes = [];
+    this.temtemTypesService.updateSelectedTypes(this.selectedTypes);
   }
 
-  setSelectedTypes(type: string) {
+  private setSelectedTypes(type: string): void {
     if (this.selectedTypes.includes(type)) {
-      this.selectedTypes.splice(this.selectedTypes.indexOf(type), 1);
+      this.removeTypeFromSelectedTypes(type);
     } else {
       this.selectedTypes.push(type);
     }
   }
 
-  limitSelectedTypes(type: string): boolean {
+  private removeTypeFromSelectedTypes(type: string) {
+    this.selectedTypes.splice(this.selectedTypes.indexOf(type), 1);
+  }
+
+  private isSelectedTypesLimited(type: string): boolean {
     if (this.selectedTypes.length < 2) {
       return true;
     } else if (this.selectedTypes.includes(type)) {
@@ -56,18 +53,4 @@ export class TemtemTypesComponent implements AfterViewInit {
     }
     return false;
   }
-
-  resetTypes() {
-    this.removeGreyBorder();
-    this.selectedTypes = [];
-    this.temtemTypesService.updateTemtemType(this.selectedTypes);
-  }
-
-  removeGreyBorder() {
-    for (const type of TYPES) {
-      const typeButton = document.getElementById(type);
-      typeButton.style.border = '';
-    }
-  }
-
 }

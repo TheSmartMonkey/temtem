@@ -6,15 +6,8 @@
     "baseUrl": "",
     "types": []
   },
-  "include": [
-    "main.ts",
-    "polyfills.ts",
-    "app/**/*.ts",
-    "environments/**/*.ts"
-  ],
-  "exclude": [
-    "**/*.spec.ts"
-  ],
+  "include": ["main.ts", "polyfills.ts", "app/**/*.ts", "environments/**/*.ts"],
+  "exclude": ["**/*.spec.ts"],
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true,
